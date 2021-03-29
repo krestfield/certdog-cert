@@ -2,7 +2,7 @@
   "certdogUrl" : "https://certdog.net/certdog/api",
   "certIssuerName" : "Certdog TLS",
   "teamName" : "Test Team",
-  "renewalDays" : 300,
+  "renewalDays" : 30,
   "csrKeyLength" : 2048,
   "csrHash" : "sha256",
   "csrProvider" : "Microsoft RSA SChannel Cryptographic Provider",
