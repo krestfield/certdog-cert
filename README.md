@@ -17,7 +17,7 @@ This example is much like a traditional, Microsoft auto-enrolment model, but ena
 
 Full details on this script can be found [here](https://krestfield.github.io/docs/certdog/cert_powershell.html)  
 
-Get the signed version of this script from [here](https://krestfield.s3.eu-west-2.amazonaws.com/certdog/certdog-cert.ps1)  
+Get the signed version of this script from [here](https://krestfield.s3.eu-west-2.amazonaws.com/certdog/certdog-cert.zip)  
 
 
 
