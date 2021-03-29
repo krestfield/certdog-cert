@@ -8,9 +8,14 @@ It can create a scheduled task to then monitor and auto-renew storing the authen
 
 Certdog can interface to your Microsoft CAs, PrimeKey EJBCAs or use its own internal CAs, providing a simple UI or a REST API (as is used by this script) to automate the issuance of certificates
 
-##   
+  
 
-Full details on this script can be found here [https://krestfield.github.io/docs/certdog/cert_powershell.html](https://krestfield.github.io/docs/certdog/cert_powershell.html)  
+This example is much like a traditional, Microsoft auto-enrolment model, but enables the use of other CAs, and can be used where auto-enrolment may not be possible (non-domain joined servers) or where you wish to avoid group-policy changes. You also have the ability to easily view and search your issued certificates    
+
+
+
+
+Full details on this script can be found [here](https://krestfield.github.io/docs/certdog/cert_powershell.html)  
 
 Get the signed version of this script from [here](https://krestfield.s3.eu-west-2.amazonaws.com/certdog/certdog-cert.ps1)  
 
@@ -66,9 +71,9 @@ For example, to generate a certificate with a DN of ``CN=test.com,O=Org,C=GB``, 
 .\certdog-cert.ps1 -new -username certdoguser -password password -sans "EMAIL=user@domain.com,DNS=server2.com" -dn "CN=test.com,O=Org,C=GB" -saveCreds y -createTask y -taskUsername "domain\user1" -taskPassword "password"
 ```
 
+​    
 
-
-
+  
 
  Once the above has been performed the script saves the required information. Running:
 
@@ -76,9 +81,8 @@ For example, to generate a certificate with a DN of ``CN=test.com,O=Org,C=GB``, 
 .\certdog-cert.ps1 -renew
 ```
 
-Will check and process any renewals required for the sites and bindings configured when the ``-new`` switch was used
+Will check and process any renewals required  
 
-  
 
 As above, this can be run with the username and password options:
 
@@ -88,9 +92,7 @@ As above, this can be run with the username and password options:
 
  
 
-
-
- To list what bindings are being monitored:
+ To list what certificates are being monitored:
 
 ```powershell
 .\certdog-cert.ps1 -list
@@ -98,13 +100,13 @@ As above, this can be run with the username and password options:
 
    
 
- To create a scheduled task that runs the ``.\certdog-iis.ps1 -renew`` script daily, run
+ To create a scheduled task that runs the ``.\certdog-cert.ps1 -renew`` script daily, run
 
 ```powershell
 .\certdog-cert.ps1 -taskonly
 ```
 
-
+  
 
 To override the certdog URL as specified in the ``settings.json`` file, use ``-certdogUrl`` e.g.
 
@@ -112,7 +114,7 @@ To override the certdog URL as specified in the ``settings.json`` file, use ``-c
 .\certdog-cert.ps1 -new -certdogUrl https://certdog.org.com/certdog/api
 ```
 
-   
+​     
 
 To ignore any SSL errors (if the certdog URL is not protected with a trusted cert), use ``-ignoreSslErrors`` e.g.
 
@@ -143,11 +145,11 @@ Settings are stored within the ``settings.json`` file. Sample contents:
 
 * certdogUrl
 
-The URL of the certdog installation's api. If using the Docker image the default setting will operate OK
+The URL of the certdog installation's api. If using the Docker image use https://127/0/0/1/certdog/api
 
 * certIssuer
 
-The name of the certificate issuer as configured in certdog (e.g. Certdog TLS Issuer)
+The name of the certificate issuer as configured in certdog (e.g. Certdog TLS)
 
 * renewalDays
 
