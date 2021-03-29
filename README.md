@@ -145,7 +145,7 @@ Settings are stored within the ``settings.json`` file. Sample contents:
 
 * certdogUrl
 
-The URL of the certdog installation's api. If using the Docker image use https://127/0/0/1/certdog/api
+The URL of the certdog installation's api. If using the Docker image use https://127.0.0.1/certdog/api
 
 * certIssuer
 
